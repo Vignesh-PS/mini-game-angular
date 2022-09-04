@@ -1,0 +1,53 @@
+.question-card{
+  min-height: 400px;
+  position: relative;
+  transition: all 1.5s;
+
+  &-opened{
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 1;
+    transition: all 2s;
+  }
+
+  p{
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+  }
+
+  &:hover{
+    transform: scale(1.2);
+  }
+}
+
+.question-card-overlay{
+  position: absolute;
+  width: 92%;
+  height: 100%;
+  background: url('./../../assets/images/card-wrapper.jpg') no-repeat;
+  background-size: cover;
+  h1{
+    background: #402525;
+    padding: 16px;
+    border-radius: 50%;
+    font-size: 3rem;
+    color: #fff;
+  }
+}
+
+::ng-deep{
+  .tab-content{
+    width: 100%;
+  }
+}
+
+.audio-card{
+  audio{
+    width: 100%;
+  }
+}

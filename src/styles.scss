@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
+.divide-border{
+  border-bottom: 2px solid #b97e7e;
+  border-style: dashed;
+  border-top: unset;
+  border-right: unset;
+  border-left: unset;
+}

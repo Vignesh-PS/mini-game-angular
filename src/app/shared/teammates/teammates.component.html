@@ -1,0 +1,9 @@
+<div class="team-mates" *ngIf="teamMates?.length!=0">
+  <button *ngFor="let team of teamMates" type="button" class="btn btn-outline-primary me-2">{{team.name}}</button>
+
+  <button class="btn btn-link">are joined...</button>
+</div>
+
+<div *ngIf="teamMates?.length==0" class="no-join text-center py-3">
+  <h2>No one joined yet!</h2>
+</div>

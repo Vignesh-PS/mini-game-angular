@@ -1,0 +1,90 @@
+<app-header></app-header>
+
+<section class="team-mates py-3">
+  <div class="container">
+    <app-teammates></app-teammates>
+  </div>
+</section>
+
+<section class="cgames py-3">
+  <div class="container">
+
+
+    <div class="d-flex">
+      <ul ngbNav #nav="ngbNav" [(activeId)]="selectedGame" class="nav-pills" orientation="vertical">
+        <li ngbNavItem="luck">
+          <a ngbNavLink>Choose your one</a>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <div class="col-3 question-card me-4 mb-4 {{qn.id}}" *ngFor="let qn of questions; let i = index" (click)="chooseQuestion(qn)">
+
+                <div [@enterAnimation] class="question-card-opened" *ngIf="qn.isOpen">
+                  <h3>
+                    {{qn.question}}
+                  </h3>
+
+                  <p>
+                   Opened by {{qn.openedBy}}
+                  </p>
+
+                </div>
+
+                <div class="question-card-overlay d-flex" *ngIf="!qn.isOpen">
+                  <h1 class="m-auto">{{i+1}}</h1>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+
+        <li ngbNavItem="music">
+          <a ngbNavLink>Find music</a>
+          <ng-template ngbNavContent>
+
+            <ngb-accordion #acc="ngbAccordion">
+              <ngb-panel [title]="'Music No: '+(i+1) + (!musicStatus[i]?.question ? ' (Locked)': '')" *ngFor="let music of musicList; let i = index;" [disabled]="!musicStatus[i]?.question">
+                <ng-template ngbPanelContent>
+
+
+                  <div class="audio-card">
+                    <p>
+                     Play it
+                    </p>
+
+                    <audio [controls]="musicStatus[i]?.question">
+                      <source [src]="sanitize.bypassSecurityTrustUrl(hostUrl + 'uploads/'+music.question)" type="audio/mpeg">
+                    </audio>
+
+                  </div>
+
+                  <div class="audio-card mt-3">
+                    <p *ngIf="musicStatus[i]?.answer">
+                     Answer
+                    </p>
+
+                    <audio [controls]="musicStatus[i]?.answer">
+                      <source [src]="sanitize.bypassSecurityTrustUrl(hostUrl + 'uploads/'+music.answer)" type="audio/mpeg">
+                    </audio>
+
+                    <p *ngIf="!musicStatus[i]?.answer">
+                      Answer is locked
+                    </p>
+
+                  </div>
+
+
+                </ng-template>
+              </ngb-panel>
+            </ngb-accordion>
+
+          </ng-template>
+        </li>
+      </ul>
+
+      <div [ngbNavOutlet]="nav" class="ms-4"></div>
+    </div>
+
+  </div>
+</section>
+
+<app-global-toastr></app-global-toastr>
