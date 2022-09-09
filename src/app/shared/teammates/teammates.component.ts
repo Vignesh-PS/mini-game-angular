@@ -49,15 +49,16 @@ export class TeammatesComponent implements OnInit {
 
   }
 
-  getNameFromUser(): string{
+  getNameFromUser(): any{
     const name: any = prompt('Pleae enter your name');
-    console.log('name :>> ', name);
     if(!name){
       this.getNameFromUser();
+    }else{
+      console.log('saved name');
+      localStorage.setItem('myName', name);
+      this.fire.collection('users').add({name: name});
+      return name;
     }
-    localStorage.setItem('myName', name);
-    this.fire.collection('users').add({name: name});
-    return name;
   }
 
   pushPeopleName(){

@@ -52,7 +52,7 @@
                     </p>
 
                     <audio [controls]="musicStatus[i]?.question">
-                      <source [src]="sanitize.bypassSecurityTrustUrl(hostUrl + 'uploads/'+music.question)" type="audio/mpeg">
+                      <source [src]="'assets/music/'+music.question" type="audio/mpeg">
                     </audio>
 
                   </div>
@@ -63,7 +63,7 @@
                     </p>
 
                     <audio [controls]="musicStatus[i]?.answer">
-                      <source [src]="sanitize.bypassSecurityTrustUrl(hostUrl + 'uploads/'+music.answer)" type="audio/mpeg">
+                      <source [src]="'assets/music/'+music.answer" type="audio/mpeg">
                     </audio>
 
                     <p *ngIf="!musicStatus[i]?.answer">
