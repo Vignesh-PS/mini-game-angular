@@ -1,3 +1,3 @@
 export const Constants = {
-  teamname: 'Team Orion: Fun time'
+  teamname: 'Team Joget: Fun time'
 }

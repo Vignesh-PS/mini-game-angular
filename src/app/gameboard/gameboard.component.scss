@@ -1,7 +1,8 @@
 .question-card{
   min-height: 400px;
   position: relative;
-  transition: all 1.5s;
+  transition: all 0.3s;
+  top: 0;
 
   &-opened{
     background: #fff;
@@ -12,7 +13,7 @@
     flex-direction: column;
     justify-content: space-between;
     opacity: 1;
-    transition: all 2s;
+    transition: all 1s;
   }
 
   p{
@@ -21,7 +22,8 @@
   }
 
   &:hover{
-    transform: scale(1.2);
+    // transform: scale(1.05);
+    top: -20px;
   }
 }
 
@@ -31,12 +33,17 @@
   height: 100%;
   background: url('./../../assets/images/card-wrapper.jpg') no-repeat;
   background-size: cover;
+  border-radius: 6px;
+  cursor: pointer;
   h1{
     background: #402525;
-    padding: 16px;
+    padding: 4px;
+    text-align: center;
     border-radius: 50%;
     font-size: 3rem;
     color: #fff;
+    width: 65px;
+    height: 65px;
   }
 }
 
